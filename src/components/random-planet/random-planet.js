@@ -1,33 +1,60 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
+
+import SwapiService from "../../services/swapi-service";
 
 import './random-planet.css';
 
-export default class RandomPlanet extends Component {
+const RandomPlanet = () => {
 
-  render() {
+    const swapiService = new SwapiService();
+
+    const [id, setId] = useState(null);
+    const [name, setName] = useState(null);
+    const [population, setPopulation] = useState(null);
+    const [rotationPeriod, setRotationPeriod] = useState(null);
+    const [diameter, setDiameter] = useState(null);
+
+    const updatePlanet = (id) => {
+        swapiService
+            .getPlanet(id)
+            .then((planet) => {
+                setId(id);
+                setName(planet.name);
+                setDiameter(planet.diameter);
+                setPopulation(planet.population);
+                setRotationPeriod(planet.rotation_period);
+            });
+    };
+
+    useEffect(() => {
+        const id = Math.floor(Math.random()*19)+1;
+        updatePlanet(id);
+    },[]);
+
     return (
       <div className="random-planet jumbotron rounded">
         <img className="planet-image"
-             src="https://starwars-visualguide.com/assets/img/planets/5.jpg"  alt='text'/>
+             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}  alt='text' />
         <div>
-          <h4>Planet Name</h4>
+          <h4> {name} </h4>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
               <span className="term">Population</span>
-              <span>123124</span>
+              <span> {population} </span>
             </li>
             <li className="list-group-item">
               <span className="term">Rotation Period</span>
-              <span>43</span>
+              <span> {rotationPeriod} </span>
             </li>
             <li className="list-group-item">
               <span className="term">Diameter</span>
-              <span>100</span>
+              <span> {diameter} </span>
             </li>
           </ul>
         </div>
       </div>
 
     );
-  }
-}
+};
+
+export default RandomPlanet;

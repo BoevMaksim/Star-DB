@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './item-list.css';
 
-export default class ItemList extends Component {
+const ItemList = () => {
 
-  render() {
     return (
       <ul className="item-list list-group">
         <li className="list-group-item">
@@ -18,5 +17,6 @@ export default class ItemList extends Component {
         </li>
       </ul>
     );
-  }
-}
+};
+
+export default ItemList;

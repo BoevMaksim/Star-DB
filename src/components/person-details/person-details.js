@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './person-details.css';
 
-export default class PersonDetails extends Component {
+const PersonDetails = () => {
 
-  render() {
     return (
       <div className="person-details card">
         <img className="person-image"
@@ -28,6 +27,7 @@ export default class PersonDetails extends Component {
           </ul>
         </div>
       </div>
-    )
-  }
-}
+    );
+};
+
+export default PersonDetails;
