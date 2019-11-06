@@ -41,12 +41,12 @@ const PersonDetails = ( {personId} ) => {
               <span>{gender}</span>
             </li>
             <li className="list-group-item">
-              <span className="term">{birthYear}</span>
-              <span>43</span>
+              <span className="term">Birth Year</span>
+              <span>{birthYear}</span>
             </li>
             <li className="list-group-item">
-              <span className="term">{eyeColor}</span>
-              <span>red</span>
+              <span className="term">Eye Color</span>
+              <span>{eyeColor}</span>
             </li>
           </ul>
         </div>
