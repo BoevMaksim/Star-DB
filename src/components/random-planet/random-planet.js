@@ -24,7 +24,8 @@ const RandomPlanet = () => {
         setLoading(false);
     };
 
-    const updatePlanet = (id) => {
+    const updatePlanet = () => {
+        const id = Math.floor(Math.random()*18)+2;
         swapiService
             .getPlanet(id)
             .then(onPlanetLoaded)
@@ -32,12 +33,14 @@ const RandomPlanet = () => {
     };
 
     useEffect(() => {
-        const id = Math.floor(Math.random()*19)+1;
-        updatePlanet(id);
-    },[]);
+        const interval = setInterval(() => {
+            updatePlanet();
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
 
     const hasData = !(loading || error);
-    const errorMessag = error ? <ErrorIndicator/> : null;
+    const errorMessag = error ? <ErrorIndicator /> : null;
     const spinner = loading ? <Spinner /> : null;
     const content = hasData ? <PlanetView planet={planet} /> : null;
 
