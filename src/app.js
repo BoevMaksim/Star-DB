@@ -14,7 +14,6 @@ const App = () => {
       <Header />
       <RandomPlanet />
       <PeoplePage />
-
     </div>
   );
 };
