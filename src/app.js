@@ -10,27 +10,34 @@ import {
     PlanetDetails,
     StarshipDetails
 } from './components/sw-components/index';
+import {
+    SwapiServiceProvider
+} from './components/swapi-service-context'
+
 
 import './app.css';
+import SwapiService from "./services/swapi-service";
 
 const App = () => {
 
   return (
-    <div>
-      <Header />
-      <RandomPlanet />
-      <PeoplePage/>
-      <PersonDetails itemId={11} />
-      <PlanetDetails itemId={5} />
-      <StarshipDetails itemId={5} />
+      <SwapiServiceProvider value={new SwapiService()} >
+        <div>
+          <Header />
+          <RandomPlanet />
+          <PeoplePage/>
+          <PersonDetails itemId={11} />
+          <PlanetDetails itemId={5} />
+          <StarshipDetails itemId={5} />
 
-      <PersonLists />
+          <PersonLists />
 
-      <PlanetLists />
+          <PlanetLists />
 
-      <StarshipLists />
+          <StarshipLists />
 
-    </div>
+        </div>
+      </SwapiServiceProvider>
   );
 };
 
