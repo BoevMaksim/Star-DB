@@ -24,17 +24,12 @@ const App = () => {
       <PlanetDetails itemId={5} />
       <StarshipDetails itemId={5} />
 
-      <PersonLists>
-          { ({name}) => <span>{name}</span> }
-      </PersonLists>
+      <PersonLists />
 
-        <PlanetLists>
-            { ({name}) => <span>{name}</span> }
-        </PlanetLists>
+      <PlanetLists />
 
-        <StarshipLists>
-            { ({name}) => <span>{name}</span> }
-        </StarshipLists>
+      <StarshipLists />
+
     </div>
   );
 };
