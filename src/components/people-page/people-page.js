@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
-import ItemList from "../item-list";
-import ItemDetails, {Info} from "../item-details";
+
 import Row from "../row";
+import {PersonDetails, PersonLists} from "../sw-components";
 
 import './people-page.css';
-import SwapiService from "../../services/swapi-service";
 
 const PeoplePage = () => {
-
-    const {getPerson, getPersonImage, getAllPeople} = new SwapiService();
 
     const [selectedPerson, setSelectedPerson] = useState(null);
 
@@ -17,19 +14,13 @@ const PeoplePage = () => {
     };
 
     const itemList = (
-        <ItemList onItemSelected={onPersonSelected}
-                  getData={getAllPeople()}
-                  renderItem={( i ) => `${i.name} `} />
+        <PersonLists onItemSelected={onPersonSelected}>
+            { ({name}) => <span>{name}</span> }
+        </PersonLists>
     );
 
     const personDetails = (
-        <ItemDetails itemId={selectedPerson}
-                     getData={getPerson}
-                     getImagUrl={getPersonImage} >
-            <Info field="gender" label="Gender" />
-            <Info field="eyeColor" label="Eye Color" />
-            <Info field="birthYear" label="Birth Year" />
-        </ItemDetails>
+        <PersonDetails itemId={selectedPerson} />
     );
 
     return (
