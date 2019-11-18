@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemDetails, {Info} from "../item-details";
-import {SwapiServiceConsumer} from "../swapi-service-context";
+import ItemDetails, {Info} from '../item-details';
+import {SwapiServiceConsumer} from '../swapi-service-context';
 
 const PersonDetails = ( {itemId} ) => {
     return (
@@ -38,7 +38,6 @@ const PlanetDetails = ( {itemId} ) => {
                 }
             }
         </SwapiServiceConsumer>
-
     );
 };
 const StarshipDetails = ( {itemId} ) => {
@@ -50,16 +49,21 @@ const StarshipDetails = ( {itemId} ) => {
                         <ItemDetails itemId={itemId}
                                      getData={getStarship}
                                      getImagUrl={getStarshipImage} >
-                            <Info field="model" label="Model" />
-                            <Info field="length" label="Length" />
-                            <Info field="costInCredits" label="Cost" />
+                            <Info field='model' label='Model' />
+                            <Info field='length' label='Length' />
+                            <Info field='crew' label='Crew' />
+                            <Info field='manufacturer' label='Manufacturer' />
+                            <Info field='passengers' label='Passengers' />
+                            <Info field='cargoCapacity' label='Cargo capacity' />
+                            <Info field='costInCredits' label='Cost' />
+
                         </ItemDetails>
                     )
                 }
             }
         </SwapiServiceConsumer>
-
     );
+
 };
 
 export {

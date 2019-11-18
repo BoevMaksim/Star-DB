@@ -35,8 +35,8 @@ const ItemDetails = ( {itemId, getData, getImagUrl, children} ) => {
     useEffect(() => {updatePerson()}, [itemId]);
 
     if (!item) {
-        return <span>Select a person from a list</span>
-    };
+        return <span>Choose from the list</span>
+    }
 
     return (
       <div className="person-details card">
