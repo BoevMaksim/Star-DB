@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StarshipLists, StarshipDetails} from "../sw-components";
+import {withRouter} from 'react-router-dom';
 import Row from "../row";
 
-const StarshipsPage = () => {
+const StarshipsPage = ( {history, match} ) => {
 
+   /*
+    ***Used page id instead of useState with withRouter***
     const [selectedPerson, setSelectedPerson] = useState(null);
 
     const onPersonSelected = (id) => {
         setSelectedPerson(id);
-    };
+    };*/
 
-    return (
-        <Row left={<StarshipLists onItemSelected={onPersonSelected} />}
-             right={<StarshipDetails itemId={selectedPerson} />}/>
-    );
+   const {id} = match.params;
+
+   return (
+        <Row left={<StarshipLists onItemSelected={(id) => history.push(id)} />}
+             right={<StarshipDetails itemId={id} />}/>
+   );
 };
 
-export default StarshipsPage;
+export default withRouter(StarshipsPage);

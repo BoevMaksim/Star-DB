@@ -25,10 +25,10 @@ const App = () => {
                 <Route path='/people/:id?' component={PeoplePage} />
 
                 <Route path='/planets' render={ ()=> <h2>Planets</h2> } exact />
-                <Route path='/planets' component={PlanetsPage} />
+                <Route path='/planets/:id?' component={PlanetsPage} />
 
                 <Route path='/starships' render={ ()=> <h2>Starships</h2> } exact />
-                <Route path='/starships' component={StarshipsPage} />
+                <Route path='/starships/:id?' component={StarshipsPage} />
             </div>
           </Router>
       </SwapiServiceProvider>
