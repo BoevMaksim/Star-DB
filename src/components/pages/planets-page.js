@@ -1,7 +1,7 @@
 import React from 'react';
-import {PlanetLists, PlanetDetails} from "../sw-components";
+import {PlanetLists, PlanetDetails} from '../sw-components';
 import {withRouter} from 'react-router-dom';
-import Row from "../row";
+import Row from '../row';
 
 const PlanetsPage = ( {history, match} ) => {
 
@@ -16,8 +16,11 @@ const PlanetsPage = ( {history, match} ) => {
    const {id} = match.params;
 
    return (
-        <Row left={<PlanetLists onItemSelected={(id) => history.push(id)} />}
-             right={<PlanetDetails itemId={id} />}/>
+       <div>
+           <h2>Planets</h2>
+           <Row left={<PlanetLists onItemSelected={(id) => history.push(id)} />}
+                right={<PlanetDetails itemId={id} />}/>
+       </div>
    );
 };
 

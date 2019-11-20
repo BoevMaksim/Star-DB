@@ -8,7 +8,7 @@ export default class SwapiService {
 
         if (!res.ok) {
             throw new Error(`Could not fetch ${url}` +
-                `, received ${res.status}`)
+                `, received ${res.status}`);
         }
         return await res.json();
     };

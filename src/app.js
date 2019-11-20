@@ -5,7 +5,7 @@ import {PeoplePage, PlanetsPage, StarshipsPage} from './components/pages';
 import {
     SwapiServiceProvider
 } from './components/swapi-service-context'
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import './app.css';
 import SwapiService from "./services/swapi-service";
@@ -18,17 +18,17 @@ const App = () => {
             <div>
                 <Header />
                 <RandomPlanet />
+                <Switch>
+                    <Route path='/' render={ ()=> <h2>Welcome to StarDB</h2> } exact />
 
-                <Route path='/' render={ ()=> <h2>Welcome to StarDB</h2> } exact />
+                    <Route path='/people/:id?' component={PeoplePage} />
 
-                <Route path='/people' render={ ()=> <h2>People</h2> } exact />
-                <Route path='/people/:id?' component={PeoplePage} />
+                    <Route path='/planets/:id?' component={PlanetsPage} />
 
-                <Route path='/planets' render={ ()=> <h2>Planets</h2> } exact />
-                <Route path='/planets/:id?' component={PlanetsPage} />
+                    <Route path='/starships/:id?' component={StarshipsPage} />
 
-                <Route path='/starships' render={ ()=> <h2>Starships</h2> } exact />
-                <Route path='/starships/:id?' component={StarshipsPage} />
+                    <Route render={ ()=> <h2>Page not found</h2>} />
+                </Switch>
             </div>
           </Router>
       </SwapiServiceProvider>

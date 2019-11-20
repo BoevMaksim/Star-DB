@@ -1,7 +1,7 @@
 import React from 'react';
-import {PersonLists, PersonDetails} from "../sw-components";
+import {PersonLists, PersonDetails} from '../sw-components';
 import {withRouter} from 'react-router-dom';
-import Row from "../row";
+import Row from '../row';
 
 const PeoplePage = ( {history, match} ) => {
 
@@ -16,8 +16,11 @@ const PeoplePage = ( {history, match} ) => {
    const {id} = match.params;
 
    return (
-        <Row left={<PersonLists onItemSelected={(id) => history.push(id)} />}
-             right={<PersonDetails itemId={id} />}/>
+       <div>
+           <h2>People</h2>
+           <Row left={<PersonLists onItemSelected={(id) => history.push(id)} />}
+                right={<PersonDetails itemId={id} />}/>
+       </div>
    );
 };
 
