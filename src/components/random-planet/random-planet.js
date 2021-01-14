@@ -33,6 +33,7 @@ const RandomPlanet = () => {
     };
 
     useEffect(() => {
+        updatePlanet();
         const interval = setInterval(() => {
             updatePlanet();
         }, 30000);
