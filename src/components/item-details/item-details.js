@@ -32,7 +32,7 @@ const ItemDetails = ( {itemId, getData, getImagUrl, children} ) => {
             });
     };
 
-    useEffect(() => {updatePerson()}, [itemId]);
+    useEffect(() => {updatePerson()}, [itemId]); //eslint-disable-line
 
     if (!item) {
         return <span>Choose from the list</span>
