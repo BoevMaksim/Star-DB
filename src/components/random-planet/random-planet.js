@@ -38,7 +38,7 @@ const RandomPlanet = () => {
             updatePlanet();
         }, 30000);
         return () => clearInterval(interval);
-    }, []);
+    }, []); //eslint-disable-line
 
     const hasData = !(loading || error);
     const errorMessag = error ? <ErrorIndicator /> : null;
